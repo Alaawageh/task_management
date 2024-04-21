@@ -1,0 +1,31 @@
+.task-status .badge {
+    padding: 0.5em 1em;
+    border-radius: 10px;
+    font-weight: bold;
+}
+
+.task-status .bg-warning {
+    background-color: #ffc107;
+}
+
+.task-status .bg-info {
+    background-color: #17a2b8;
+}
+
+.task-status .bg-success {
+    background-color: #28a745;
+}
+
+.task-status .bg-secondary {
+    background-color: #6c757d;
+}
+
+.task-status .text-white {
+    color: #fff;
+}
+
+.task-status .text-dark {
+    color: #343a40;
+}
+
+
