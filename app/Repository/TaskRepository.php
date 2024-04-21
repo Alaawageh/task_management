@@ -40,9 +40,11 @@ class TaskRepository implements TaskRepositoryInterface {
             return redirect()->route('tasks.index');
         }
         catch (\Exception $e) {
+
             DB::rollBack();
             return redirect()->back()->with(['error' => $e->getMessage()]);
         }
+        
     }
     
 
@@ -102,6 +104,9 @@ class TaskRepository implements TaskRepositoryInterface {
         ->get();
         
         return $tasks;
+
+        //in laravel 10.47
+        // $tasks = Task::whereAny(['title','priority','status'], 'LIKE', '%$request->search%')->get();
 
     }
     public function TaskComplected()

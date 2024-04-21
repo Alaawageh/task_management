@@ -20,7 +20,7 @@
                             
                                 <div class="flex-1">
                                     <x-input-label for="priority" :value="__('Priority')" />
-                                    <select id="priority" name="priority" class="mt-1 block w-full border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm">
+                                    <select id="priority" name="priority" class="mt-1 block w-full border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm" required>
                                         <option value="">Select priority</option>
                                         @foreach (\App\Enums\PriorityEnum::Labels() as $key => $value)
                                             <option value="{{ $key }}">{{ $value }}</option>
@@ -35,7 +35,7 @@
                                 </div>
                             
                                 <div class="flex-1">
-                                    <x-input-label for="end_date" :value="__('End Date')" />
+                                    <x-input-label for="end_date" :value="__('End Date')"/>
                                     <x-text-input id="end_date" name="end_date" type="date" class="mt-1 block w-full" />
                                     <x-input-error :messages="$errors->end_date->get('end_date')" class="mt-2" />
                                 </div>
@@ -45,19 +45,9 @@
                                 <textarea id="description" rows="4" name="description" class="w-full border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm" placeholder="Write a Description..."></textarea>
                                 <x-input-error :messages="$errors->description->get('description')" class="mt-2" />
                             </div>
-                            {{-- <div>
-                                <x-input-label for="assigned_to" :value="__('Assigned To')" />
-                                <select id="assigned_to" name="assigned_to" class="mt-1 block w-full border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm">
-                                    <option value=""> Select User</option>
-                                    @foreach ($users as $user)
-                                        <option value="{{ $user->id }}">{{ $user->name }}</option>
-                                    @endforeach
-                                </select>
-                                <x-input-error :messages="$errors->assigned_to->get('assigned_to')" class="mt-2" />
-                            </div> --}}
                             <div>
                                 <x-input-label for="users" :value="__('Users')" />
-                                <select id="users" name="users[]" class="mt-1 block w-full border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm" multiple>
+                                <select id="users" name="users[]" class="mt-1 block w-full border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm" multiple required>
                                     <option value=""> Select User</option>
                                     @foreach ($users as $user)
                                         <option value="{{ $user->id }}">{{ $user->name }}</option>

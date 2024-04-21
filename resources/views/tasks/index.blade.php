@@ -57,13 +57,13 @@
                                 </td>
                                 <td>{{ App\Enums\PriorityEnum::Labels()[$task->priority] }}</td>
                                 <td>
-                                    @can('delete',$task)
+                                    {{-- @can('delete',$task) --}}
                                     <a href="#"
                                         class="btn btn-danger btn-sm"
                                         data-toggle="modal"
                                         data-target="#delete{{ $task->id }}">{{__('Delete')}}
                                     </a>
-                                    @endcan
+                                    {{-- @endcan --}}
 
                                     
                                     <x-info-button  onclick="window.location.href='{{ route('tasks.edit', $task->id) }}'">
@@ -71,18 +71,18 @@
                                     </x-info-button>
                                     
                                     
-                                    @can('saveStatus',$task)
+                                    {{-- @can('saveStatus',$task) --}}
                                     <a href="#"
                                         class="btn btn-success btn-sm"
                                         data-toggle="modal"
                                         data-target="#edit{{ $task->id }}">{{__('Change Status')}}
                                     </a>
-                                    @endcan
-                                    @can('view',$task)
+                                    {{-- @endcan --}}
+                                    {{-- @can('view',$task) --}}
                                     <button class="btn btn-sm btn-info" onclick="window.location.href='{{ route('task.show_details', $task->id) }}'">
                                         {{ __('Show Details') }}
                                     </button> 
-                                    @endcan
+                                    {{-- @endcan --}}
                                     
                                 </td>
                             </tr>
