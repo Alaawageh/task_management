@@ -20,7 +20,7 @@ class TasksTableSeeder extends Seeder
     {
         $faker = Faker::create();
         $userIds = [];
-        foreach (range(1, 10) as $index) {
+        foreach (range(1, 100) as $index) {
             $userId = DB::table('users')->insertGetId([
                 'name' => $faker->name,
                 'email' => $faker->unique()->safeEmail,
@@ -49,7 +49,7 @@ class TasksTableSeeder extends Seeder
          
         }
         $ids = [];
-        foreach (range(1, 1000) as $index) {
+        foreach (range(1, 100) as $index) {
             $user_id = $faker->randomElement($userIds);
             $task_id = $faker->randomElement($taskIds);
             $taskUsers =DB::table('task_user')->insert([
