@@ -28,7 +28,7 @@ class TaskRepository implements TaskRepositoryInterface {
     }
     public function StoreTask($request)
     {
-        DB::beginTransaction();
+        // DB::beginTransaction();
         try{
             $task = auth()->user()->tasksCreated()->create($request->safe()->all());
             
@@ -36,12 +36,12 @@ class TaskRepository implements TaskRepositoryInterface {
 
             NewTaskJob::dispatch($task);
             
-            DB::commit();
+            // DB::commit();
             return redirect()->route('tasks.index');
         }
         catch (\Exception $e) {
 
-            DB::rollBack();
+            // DB::rollBack();
             return redirect()->back()->with(['error' => $e->getMessage()]);
         }
         
@@ -50,7 +50,7 @@ class TaskRepository implements TaskRepositoryInterface {
 
     public function UpdateTask($request,$task)
     {
-        DB::beginTransaction();
+        // DB::beginTransaction();
         try{
             $task->update($request->safe()->all());
 
@@ -58,12 +58,12 @@ class TaskRepository implements TaskRepositoryInterface {
 
             EditTaskJob::dispatch($task);
 
-            DB::commit();
+            // DB::commit();
 
             return redirect()->route('tasks.index'); 
         }
         catch (\Exception $e) {
-            DB::rollBack();
+            // DB::rollBack();
             return redirect()->back()->with(['error' => $e->getMessage()]);
         } 
     }
