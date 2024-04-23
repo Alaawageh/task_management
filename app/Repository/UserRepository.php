@@ -18,10 +18,10 @@ class UserRepository implements UserRepositoryInterface {
     }
     public function Create() 
     {
-        $roles = Cache::remember('roles',function() {
-            return Role::latest()->get();
+        // $roles = Cache::remember('roles',function() {
+            $roles = Role::latest()->get();
 
-        });
+        // });
         return view('users.create', compact('roles'));
     }
     public function StoreUser($request)
