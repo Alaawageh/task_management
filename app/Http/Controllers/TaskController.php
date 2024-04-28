@@ -18,9 +18,8 @@ class TaskController extends Controller
     }
     public function index()
     {
-        $tasks = $this->Task->getAllTasks();
-        $users = $this->Task->GetAllUsers();
-        return view('tasks.index', compact('tasks', 'users'));
+        $tasks = $this->Task->GetAllTasks();
+        return view('tasks.index', compact('tasks'));
     }
 
     

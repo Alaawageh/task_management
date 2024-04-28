@@ -50,8 +50,8 @@
                             @forelse ($tasks as $task)
                             <tr>
                                 <td>{{ $task->title }}</td>
-                                <td>{{ $task->start_date }}</td>
-                                <td>{{ $task->end_date }}</td>
+                                <td>{{ $task->start_date->format('Y-m-d') }}</td>
+                                <td>{{ $task->end_date->format('Y-m-d') }}</td>
                                 <td>       
                                     <x-task-status :status="$task->status" />
                                 </td>

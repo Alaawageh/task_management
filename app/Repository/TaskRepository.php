@@ -13,12 +13,13 @@ class TaskRepository implements TaskRepositoryInterface {
 
     public function GetAllTasks()
     {
-        return Cache::remember('tasks',60,function() {
-            return Task::with('users')->TaskStatus()
+        // return Cache::remember('tasks',60,function() {
+            $tasks = Task::with('users')->TaskStatus()
             ->latest()
-            ->select('title','status','priority','Start_Date','end_Date')
+            ->select('id','title','status','priority','start_date','end_date')
             ->paginate(50); 
-        });
+        // });
+        return $tasks;
     }
     public function GetAllUsers()
     {
